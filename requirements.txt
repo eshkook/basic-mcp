@@ -1,4 +1,7 @@
-fastapi==0.104.1
-uvicorn[standard]==0.24.0
-numpy==1.24.3
-debugpy==1.8.0
+fastapi>=0.104.1
+uvicorn[standard]>=0.24.0
+numpy>=1.24.3
+debugpy>=1.8.0
+mcp>=1.0.0
+pydantic>=2.5.0
+anyio>=4.6
