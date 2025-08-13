@@ -1,6 +1,6 @@
 # Text Assistant MCP Server
 
-A minimal MCP (Model Context Protocol) compatible server that provides simple tools, resources, and prompt templates for text processing.
+A minimal MCP (Model Context Protocol) compatible server that provides simple tools, resources, and prompt templates for text processing. Built with FastAPI and FastMCP for seamless integration.
 
 ## Features
 
@@ -51,9 +51,14 @@ A minimal MCP (Model Context Protocol) compatible server that provides simple to
 ### FastAPI Endpoints
 - `GET /health` - Health check endpoint
 - `POST /prompt/{prompt_name}` - Get prompt content with filled arguments
+- `GET /mcp/tools` - List available MCP tools
+- `POST /mcp/tools/{tool_name}` - Execute MCP tools
+- `GET /mcp/resources` - List available MCP resources
+- `GET /mcp/resources/{resource_name}` - Read MCP resources
+- `GET /mcp/prompts` - List available MCP prompts
 
 ### MCP Protocol
-The server implements the Model Context Protocol and can be used with MCP-compatible clients.
+The server implements the Model Context Protocol using FastMCP and can be used with MCP-compatible clients.
 
 #### Example MCP Client Configuration
 ```json
@@ -73,7 +78,7 @@ The server implements the Model Context Protocol and can be used with MCP-compat
 ### Project Structure
 ```
 basic-mcp/
-├── app.py              # FastAPI application with HTTP endpoints
+├── app.py              # FastAPI application with FastMCP integration
 ├── requirements.txt    # Python dependencies
 ├── Dockerfile         # Docker container definition
 ├── docker-compose.yml # Docker Compose configuration
@@ -89,12 +94,12 @@ basic-mcp/
 1. Set `DEBUG=true` in your `.env` file
 2. Start the container: `docker-compose up --build`
 3. In VS Code, use "Attach to Docker Container" configuration
-4. Set breakpoints and debug the MCP server
+4. Set breakpoints and debug the FastAPI application
 
 ### Adding New Features
-- **Tools**: Add new methods to the `TextAssistantMCPServer` class
-- **Resources**: Add new files to the `resources/` directory
-- **Prompts**: Add new prompt templates to the `list_prompts` method
+- **Tools**: Add new functions with `@mcp.tool("tool_name")` decorator
+- **Resources**: Add new functions with `@mcp.resource("resource_name")` decorator
+- **Prompts**: Add new functions with `@mcp.prompt("prompt_name")` decorator
 
 ## License
 This project is open source and available under the MIT License.
