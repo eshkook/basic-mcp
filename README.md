@@ -8,6 +8,7 @@ A minimal MCP (Model Context Protocol) compatible server that provides simple to
 - **`/resources/example-text`**
   - Description: A sample paragraph of text that agents can read.
   - Content: "The quick brown fox jumps over the lazy dog. This sentence contains every letter of the alphabet."
+  - File: `resources/example-text.txt`
 
 ### 🔹 Tools
 1. **`count_words(text: str) -> int`**
@@ -22,6 +23,7 @@ A minimal MCP (Model Context Protocol) compatible server that provides simple to
 1. **`summarize_prompt(language: str, text: str)`**
    - Template: "Summarize the following text in {language}:\n\n{text}"
    - Description: Allows the agent to generate a summary in the desired language by filling in `language` and `text`.
+   - File: `prompts/summarize_prompt.txt`
 
 ## Behavior
 - The MCP server does not maintain memory.
@@ -50,7 +52,6 @@ A minimal MCP (Model Context Protocol) compatible server that provides simple to
 
 ### FastAPI Endpoints
 - `GET /health` - Health check endpoint
-- `POST /prompt/{prompt_name}` - Get prompt content with filled arguments
 - `GET /mcp/tools` - List available MCP tools
 - `POST /mcp/tools/{tool_name}` - Execute MCP tools
 - `GET /mcp/resources` - List available MCP resources
@@ -85,6 +86,8 @@ basic-mcp/
 ├── entrypoint.sh      # Container startup script
 ├── resources/         # Static resources
 │   └── example-text.txt
+├── prompts/           # Prompt templates
+│   └── summarize_prompt.txt
 ├── .vscode/           # VS Code configuration
 │   └── launch.json    # Debug configuration
 └── README.md          # This file
@@ -98,8 +101,8 @@ basic-mcp/
 
 ### Adding New Features
 - **Tools**: Add new functions with `@mcp.tool("tool_name")` decorator
-- **Resources**: Add new functions with `@mcp.resource("resource_name")` decorator
-- **Prompts**: Add new functions with `@mcp.prompt("prompt_name")` decorator
+- **Resources**: Add new files to the `resources/` directory
+- **Prompts**: Add new template files to the `prompts/` directory
 
 ## License
 This project is open source and available under the MIT License.
