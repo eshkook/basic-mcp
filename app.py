@@ -61,6 +61,8 @@ def summarize_prompt(language: str, text: str) -> str:
 
 @app.get("/health")
 def health_check() -> Dict[str, str]:
+    logger.info(f"INFO LOGGING")
+    logger.debug(f"DEBUG LOGGING")
     return {"status": "healthy", "service": "Text Assistant MCP Server"}
 
 if __name__ == "__main__":
