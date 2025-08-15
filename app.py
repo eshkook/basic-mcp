@@ -3,6 +3,25 @@ from fastmcp import FastMCP
 from typing import Dict, Any
 import os
 import uvicorn
+import logging
+
+logger = logging.getLogger(__name__)
+
+# Application configuration
+APP_HOST = os.getenv("APP_HOST")
+APP_PORT = int(os.getenv("APP_PORT"))
+LOG_LEVEL = os.getenv("LOG_LEVEL")
+DEBUG = os.getenv("DEBUG")
+
+# Configure logging
+logging.basicConfig(
+    level=getattr(logging, LOG_LEVEL.upper()),
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+
+# Set debug level for our module during development
+if DEBUG == "true":
+    logger.setLevel(logging.DEBUG)
 
 app = FastAPI(title="Text Assistant MCP Server", version="1.0.0")
 
@@ -45,4 +64,9 @@ def health_check() -> Dict[str, str]:
     return {"status": "healthy", "service": "Text Assistant MCP Server"}
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=5000)
+    uvicorn.run(
+        app, 
+        host=APP_HOST, 
+        port=APP_PORT, 
+        log_level=LOG_LEVEL.lower()
+    )
