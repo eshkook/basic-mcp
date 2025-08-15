@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    image: my-mcp-app:dev
+    ports:
+      - "5000:5000"
+      - "5678:5678"
+    volumes:
+      - .:/app
+    env_file:
+      - .env
