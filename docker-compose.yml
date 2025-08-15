@@ -1,7 +1,7 @@
 services:
   app:
     build: .
-    image: my-fastapi-app:1.0.0
+    image: my-mcp-app:1.0.0
     ports:
       - "5000:5000"  # FastAPI app port
       - "5678:5678"  # Debugpy port
