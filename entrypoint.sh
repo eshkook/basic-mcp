@@ -13,8 +13,10 @@
 
 if [ "$DEBUG" = "true" ]; then
     echo "🛠️  Running in DEBUG mode..."
-    exec python -m debugpy --listen 0.0.0.0:5678 --wait-for-client script
+    exec python -m debugpy --listen 0.0.0.0:5678 --wait-for-client -m script
 else
     echo "🚀 Running in normal mode..."
     exec python -m script
 fi
+
+
