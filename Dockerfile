@@ -1,11 +1,12 @@
-# Use Python 3.11 slim image as base
-FROM python:3.11-slim
+# Use Python image as base
+# FROM python:3.11-slim
+FROM python:3.11
 
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y build-essential && rm -rf /var/lib/apt/lists/*
+# Install system dependencies (only needed if you use a slim python version)
+# RUN apt-get update && apt-get install -y build-essential && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements and install Python dependencies
 COPY requirements.txt .
