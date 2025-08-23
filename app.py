@@ -8,8 +8,6 @@ import logging
 logger = logging.getLogger(__name__)
 
 # Application configuration
-APP_HOST = os.getenv("APP_HOST")
-APP_PORT = int(os.getenv("APP_PORT"))
 LOG_LEVEL = os.getenv("LOG_LEVEL")
 DEBUG = os.getenv("DEBUG")
 
@@ -65,10 +63,3 @@ def health_check() -> Dict[str, str]:
     logger.debug(f"DEBUG LOGGING")
     return {"status": "healthy", "service": "Text Assistant MCP Server"}
 
-if __name__ == "__main__":
-    uvicorn.run(
-        app, 
-        host=APP_HOST, 
-        port=APP_PORT, 
-        log_level=LOG_LEVEL.lower()
-    )
