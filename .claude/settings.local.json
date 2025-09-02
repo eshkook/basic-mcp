@@ -1,12 +1,16 @@
 {
-  "allowedTools": [
-    "Edit",
-    "Read",
-    "Write",
-    "Bash(git add:*)",
-    "Bash(git commit:*)",
-    "Bash(npm:*)",
-    "Bash(python:*)",
-    "Bash(pytest:*)"
-  ]
+  "permissions": {
+    "allow": [
+      "Edit",
+      "Read",
+      "Write",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(npm:*)",
+      "Bash(python:*)",
+      "Bash(pytest:*)",
+      "mcp__serena"
+    ],
+    "deny": []
+  }
 }
