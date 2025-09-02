@@ -4,5 +4,3 @@ services:
     image: my-mcp-app:prod
     ports:
       - "5000:5000"
-    volumes:
-      - .:/app
