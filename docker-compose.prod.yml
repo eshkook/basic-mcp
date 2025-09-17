@@ -1,6 +1,9 @@
 services:
   app:
-    build: .
-    image: my-mcp-app:prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Change the image to point to your ACR
+    image: mcpregistry123123.azurecr.io/basic-mcp:latest
     ports:
       - "5000:5000"

@@ -1,7 +1,9 @@
 services:
   app:
-    build: .
-    image: my-mcp-app:dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: my-basic-mcp-app:dev
     ports:
       - "5000:5000"
       - "5678:5678"
