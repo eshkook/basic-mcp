@@ -5,3 +5,14 @@ debugpy>=1.8.0
 fastmcp>=0.1.0
 pydantic>=2.5.0
 anyio>=4.6
+
+openai==1.90.0
+pydantic==2.11.7
+pydantic-ai==0.3.2
+pydantic-evals==0.3.2
+pydantic-graph==0.3.2
+pydantic-settings==2.10.0
+pydantic_core==2.33.2
+types-requests==2.32.4.20250611
+typing-inspection==0.4.1
+typing_extensions==4.14.0
