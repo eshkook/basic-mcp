@@ -10,6 +10,15 @@ if [ "$MODE" = "script" ]; then
         exec python -m script
     fi
 
+elif [ "$MODE" = "llm_call" ]; then
+    if [ "$DEBUG" = "true" ]; then
+        echo "🛠️  Running script in DEBUG mode..."
+        exec python -m debugpy --listen 0.0.0.0:5678 --wait-for-client -m agent.llm_call
+    else
+        echo "🛠️  Running script in normal mode..."
+        exec python -m agent.llm_call
+    fi
+
 elif [ "$MODE" = "api" ]; then
     if [ "$DEBUG" = "true" ]; then
         echo "🛠️  Running fastapi in DEBUG mode..."
@@ -23,6 +32,3 @@ else
     echo "❌ Unknown MODE: $MODE"
     exit 1
 fi
-
-
-

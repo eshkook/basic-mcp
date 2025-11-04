@@ -13,15 +13,15 @@ from .prompts import (
 )
 
 overview = '''
-
+We have a customer dataset with columns like age, income, and spending habits, and a label column indicating whether the customer churned. The goal is to predict if a new customer will churn. 
 '''
 
 question_for_user = '''
-
+What metric do you want to use?
 '''
 
 user_clarification = '''
-
+I want f1 score metric.
 '''
 
 async def main():
